@@ -1,10 +1,10 @@
 import React from 'react'
 import './Catalogue.css'
 
-function Catalogue(){
+function Catalogue(props){
     return (
         <main className="catalogue">
-            <p>i exist</p>
+            <p>{props.movies[0].title}</p>
         </main>
     )
 }

@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
 import Catalogue from './Catalogue'
+import movieData from './mockData'
 import './App.css';
 
 class App extends Component {
     constructor(){
        super()
-       this.state = {
-
-       }
-
-        
+       this.state = { 
+           movies: movieData.movies
+        }
     }
     render() {
         return (
           <React.Fragment>
             <h1>HELLOOOOOO WORLD</h1>
-            <Catalogue />
+            <Catalogue movies={this.state.movies} />
           </React.Fragment>
         );
     }

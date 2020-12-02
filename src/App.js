@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Catalogue from './Catalogue'
 import './App.css';
 
 class App extends Component {
@@ -11,9 +12,12 @@ class App extends Component {
         
     }
     render() {
-        return(
-        <h1>HELLOOOOOO WORLD</h1>
-        )
+        return (
+          <React.Fragment>
+            <h1>HELLOOOOOO WORLD</h1>
+            <Catalogue />
+          </React.Fragment>
+        );
     }
 }
 

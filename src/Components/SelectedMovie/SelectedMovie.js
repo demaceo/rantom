@@ -1,9 +1,12 @@
 import React from 'react'
 import './SelectedMovie.css'
 
-function SelectedMovie() {
+function SelectedMovie(props) {
     return (
-    <h1> bleepbloop </h1>
+    <section className="selectedMovie">
+        <h1> {props.title}</h1>
+        <img src={props.poster} alt={props.title} />
+    </section>
     )
 }
 

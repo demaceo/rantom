@@ -14,10 +14,10 @@ class App extends Component {
     }
 
     handleClick = event => {
-      console.log(event.target);
         this.setState({ 
-            selectedMovie: event.target.id 
+            selectedMovie: event.target
         })
+        console.log(this.state.selectedMovie)
     }
 
     render() {
@@ -27,10 +27,16 @@ class App extends Component {
               <Catalogue
                 movies={this.state.movies}
                 handleClick={this.handleClick}
-               
               />
             )}
-            {this.state.selectedMovie && <SelectedMovie />}
+            {this.state.selectedMovie && (
+            <SelectedMovie 
+            movieID={this.state.selectedMovie.id}
+            poster={this.state.selectedMovie.src}
+            title={this.state.selectedMovie.alt}
+            />
+            )}
+            {console.log(this.state.selectedMovie)}
           </React.Fragment>
         );
     }

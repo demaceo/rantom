@@ -3,7 +3,9 @@ import "./NavBar.css";
 
 function NavBar(props) {
     return (
-        <button className="nav-bar" onClick={props.returnToHome}>
+        <button 
+        className="nav-bar" 
+        onClick={props.returnToHome}>
             imma DINGUS
         </button>
     )

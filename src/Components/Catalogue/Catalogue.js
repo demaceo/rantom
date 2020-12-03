@@ -9,6 +9,7 @@ function Catalogue(props){
         // onClick={event => props.handleClick(event)}
         poster={movie.poster_path} 
         title={movie.title}
+        // style={"width"="200px"}
         id={movie.id}
         key={movie.id}
         handleClick={props.handleClick}

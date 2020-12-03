@@ -1,9 +1,9 @@
 import React from 'react'
 import './SelectedMovie.css'
 
-function SelectedMovie(){
+function SelectedMovie() {
     return (
-        <h1>BLEEPBLOOP</h1>
+    <h1> bleepbloop </h1>
     )
 }
 

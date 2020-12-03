@@ -4,7 +4,7 @@ import './SelectedMovie.css'
 function SelectedMovie(props) {
     return (
     <section className="selectedMovie">
-        <h1> {props.title}</h1>
+        <h1>{props.title}</h1>
         <img src={props.poster} alt={props.title} />
     </section>
     )

@@ -11,6 +11,7 @@ function Catalogue(props){
         title={movie.title}
         id={movie.id}
         key={movie.id}
+        handleClick={props.handleClick}
         />
         )
     })

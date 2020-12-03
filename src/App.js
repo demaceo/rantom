@@ -13,11 +13,12 @@ class App extends Component {
         }
     }
 
-    // handleClick = event => {
-    //     this.setState({ 
-    //         selectedMovie: event.target.id 
-    //     })
-    // }
+    handleClick = event => {
+      console.log(event.target);
+        this.setState({ 
+            selectedMovie: event.target.id 
+        })
+    }
 
     render() {
         return (
@@ -25,7 +26,7 @@ class App extends Component {
             {!this.state.selectedMovie && (
               <Catalogue
                 movies={this.state.movies}
-                // onClick={this.handleClick}
+                handleClick={this.handleClick}
                
               />
             )}

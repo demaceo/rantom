@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Catalogue from './Catalogue'
+import Catalogue from './Components/Catalogue/Catalogue'
 import movieData from './mockData'
 import './App.css';
 

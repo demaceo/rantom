@@ -1,6 +1,6 @@
 import React from 'react'
 import MovieCard from '../MovieCard/MovieCard'
-import { Row, Col } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import './Catalogue.scss'
 
 function Catalogue(props){
@@ -19,11 +19,9 @@ function Catalogue(props){
         )
     })
     return (
-        <main className="catalogue">
-            <Row>
-                 {movieCards}
-            </Row>
-        </main>
+        <Row className="justify-content-md-center">
+            {movieCards}
+        </Row>
     );
 }
 

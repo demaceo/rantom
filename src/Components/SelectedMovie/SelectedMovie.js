@@ -1,22 +1,20 @@
 import React from 'react'
 import './SelectedMovie.scss'
-import mockMovie from '../../mockMovie.js'
 
 function SelectedMovie(props) {
+let genreList = props.genres.map(item => <li>{item}</li>)
     return (
       <section className="selectedMovie">
         <h1>{props.title}</h1>
-        <img src={props.poster} alt={props.title} />
-        <h1>{mockMovie.movie.title}</h1>
-        <h2>{mockMovie.movie.tagline}</h2>
-        <img src={mockMovie.movie.backdrop_path} />
-        <p>Overview: {mockMovie.movie.overview}</p>
-        <p>Release Date: {mockMovie.movie.release_date}</p>
-        <p>Rating: {mockMovie.movie.average_rating}</p>
-        <p>Genre: {mockMovie.movie.genres[0].name}</p>
-        <p>Budget: ${mockMovie.movie.budget}</p>
-        <p>Revenue: ${mockMovie.movie.revenue}</p>
-        <p>Duration: {mockMovie.movie.runtime} minutes</p>
+        <h2>{props.tagline}</h2>
+        <img width="100%" src={props.backdrop} alt={`backdrop for ${props.title}`} />
+        <p>Overview: {props.overview}</p>
+        <p>Release Date: {props.release}</p>
+        <p>Rating: {props.rating}</p>
+        <ul>Genres: {genreList}</ul>
+        <p>Budget: ${props.budget}</p>
+        <p>Revenue: ${props.revenue}</p>
+        <p>Duration: {props.runtime} minutes</p>
       </section>
     );
 }

@@ -1,15 +1,18 @@
 import React from 'react'
-import MovieCard from './MovieCard'
+import MovieCard from '../MovieCard/MovieCard'
 import './Catalogue.css'
 
 function Catalogue(props){
     const movieCards = props.movies.map(movie => {
         return(
         <MovieCard 
+        // onClick={event => props.handleClick(event)}
         poster={movie.poster_path} 
         title={movie.title}
+        // style={"width"="200px"}
         id={movie.id}
         key={movie.id}
+        handleClick={props.handleClick}
         />
         )
     })

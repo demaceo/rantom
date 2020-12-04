@@ -1,9 +1,9 @@
-import React from 'react'
-import { Carousel } from 'react-bootstrap'
-import './FeaturedMovies.scss'
+import React from "react";
+import { Carousel } from "react-bootstrap";
+import "./FeaturedMovies.scss";
 
-function FeaturedMovies(){
-  return(
+function FeaturedMovies() {
+  return (
     <Carousel>
       <Carousel.Item>
         <img
@@ -37,11 +37,13 @@ function FeaturedMovies(){
 
         <Carousel.Caption>
           <h3>Y'all gonna get covid</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-  )
+  );
 }
 
-export default FeaturedMovies
+export default FeaturedMovies;

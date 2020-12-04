@@ -1,28 +1,24 @@
-import React from 'react'
-import MovieCard from '../MovieCard/MovieCard'
-import { Row } from 'react-bootstrap'
-import './Catalogue.scss'
+import React from "react";
+import MovieCard from "../MovieCard/MovieCard";
+import { Row } from "react-bootstrap";
+import "./Catalogue.scss";
 
-function Catalogue(props){
-    const movieCards = props.movies.map(movie => {
-        return(
-        <MovieCard
+function Catalogue(props) {
+  const movieCards = props.movies.map((movie) => {
+    return (
+      <MovieCard
         className="card"
-        poster={movie.poster_path} 
+        poster={movie.poster_path}
         title={movie.title}
         release={movie.release_date}
         rating={movie.average_rating}
         id={movie.id}
         key={movie.id}
         handleClick={props.handleClick}
-        />
-        )
-    })
-    return (
-        <Row className="justify-content-md-center">
-            {movieCards}
-        </Row>
+      />
     );
+  });
+  return <Row className="justify-content-md-center">{movieCards}</Row>;
 }
 
-export default Catalogue
+export default Catalogue;

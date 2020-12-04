@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import NavBar from './Components/NavBar/NavBar'
 import FeaturedMovies from './Components/FeaturedMovies/FeaturedMovies'
 import SelectedMovie from './Components/SelectedMovie/SelectedMovie'
 import Catalogue from './Components/Catalogue/Catalogue'
-import movieData from './mockData'
+// import movieData from './mockData'
+import { getMovies } from './apiCalls'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
@@ -12,9 +13,19 @@ class App extends Component {
     constructor(){
        super()
        this.state = { 
-           movies: movieData.movies,
-           selectedMovie: 0
+           movies: [],
+           selectedMovie: 0,
+           error: '',
+           loader: true
         }
+    }
+
+    componentDidMount() {
+      getMovies()
+      .then(response => this.setState({ movies: response.movies }))
+      .then(this.setState({ loader: false }))
+      .catch(err => this.setState({ error: err }))
+      
     }
 
     returnToHome = event => {
@@ -30,6 +41,11 @@ class App extends Component {
     }
 
     render() {
+      if(this.state.loader) {
+        return(
+          <img src="https://media.giphy.com/media/pVBUBqNdTdsVuiybM4/source.gif" alt="loading gif"></img>
+        )
+      } else {
         return (
           <React.Fragment>
             <Container>
@@ -59,6 +75,7 @@ class App extends Component {
             </Container>
           </React.Fragment>
         );
+      }
     }
 }
 

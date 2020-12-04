@@ -4,7 +4,7 @@ import "./FeaturedMovies.scss";
 
 function FeaturedMovies() {
   return (
-    <Carousel>
+    <Carousel title="Featured Movies">
       <Carousel.Item>
         <img
           className="d-block w-100"

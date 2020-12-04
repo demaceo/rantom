@@ -1,0 +1,13 @@
+.card{
+  width: 15rem;
+}
+
+.card-img{
+  opacity: .25;
+}
+
+.card-text:hover{
+  opacity: 0%;
+}
+
+.card-text:hover ~ .card-img{ opacity: 1 !important; }

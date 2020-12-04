@@ -1,5 +1,5 @@
 import React from 'react'
-import './SelectedMovie.css'
+import './SelectedMovie.scss'
 import mockMovie from '../../mockMovie.js'
 
 function SelectedMovie(props) {

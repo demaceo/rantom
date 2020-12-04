@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
 import NavBar from './Components/NavBar/NavBar'
 import SelectedMovie from './Components/SelectedMovie/SelectedMovie'
 import Catalogue from './Components/Catalogue/Catalogue'
 import movieData from './mockData'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends Component {

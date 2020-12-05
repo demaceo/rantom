@@ -42,49 +42,55 @@ class App extends Component {
   render() {
     if (this.state.loader) {
       return (
-        <img
-          src="https://media.giphy.com/media/pVBUBqNdTdsVuiybM4/giphy-downsized.gif"
-          alt="loading gif"
-        ></img>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <Container fluid>
-            {this.state.error && (
-              <Alert variant="danger">{this.state.error}</Alert>
-            )}
-            <NavBar returnToHome={this.returnToHome} />
-            {!this.state.selectedMovie && <FeaturedMovies />}
-            {!this.state.selectedMovie && (
-              <Row className="justify-content-md-center">
-                <Col>
-                  <Catalogue
-                    movies={this.state.movies}
-                    handleClick={this.handleClick}
-                  />
-                </Col>
-              </Row>
-            )}
-            {this.state.selectedMovie && (
-              <SelectedMovie
-                title={this.state.selectedMovie.title}
-                tagline={this.state.selectedMovie.tagline}
-                poster={this.state.selectedMovie.poster_path}
-                backdrop={this.state.selectedMovie.backdrop_path}
-                overview={this.state.selectedMovie.overview}
-                release={this.state.selectedMovie.release_date}
-                rating={this.state.selectedMovie.average_rating}
-                genres={this.state.selectedMovie.genres}
-                budget={this.state.selectedMovie.budget}
-                revenue={this.state.selectedMovie.revenue}
-                runtime={this.state.selectedMovie.runtime}
+        <Container>
+          <Row>
+            <Col className="d-flex justify-content-center">
+              <h1>Please wait, the movies are loading...</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Col className="d-flex justify-content-center">
+              <img
+                src="http://forgifs.com/gallery/d/301665-4/Girl-trips-spills-popcorn.gif"
+                alt="gif of lady falling"
               />
-            )}
-          </Container>
-        </React.Fragment>
+            </Col>
+          </Row>
+        </Container>
       );
     }
+    return (
+      <React.Fragment>
+        {this.state.error && <Alert variant="danger">{this.state.error}</Alert>}
+        <NavBar returnToHome={this.returnToHome} />
+        {!this.state.selectedMovie && <FeaturedMovies />}
+        {!this.state.selectedMovie && (
+          <Row className="justify-content-md-center">
+            <Col>
+              <Catalogue
+                movies={this.state.movies}
+                handleClick={this.handleClick}
+              />
+            </Col>
+          </Row>
+        )}
+        {this.state.selectedMovie && (
+          <SelectedMovie
+            title={this.state.selectedMovie.title}
+            tagline={this.state.selectedMovie.tagline}
+            poster={this.state.selectedMovie.poster_path}
+            backdrop={this.state.selectedMovie.backdrop_path}
+            overview={this.state.selectedMovie.overview}
+            release={this.state.selectedMovie.release_date}
+            rating={this.state.selectedMovie.average_rating}
+            genres={this.state.selectedMovie.genres}
+            budget={this.state.selectedMovie.budget}
+            revenue={this.state.selectedMovie.revenue}
+            runtime={this.state.selectedMovie.runtime}
+          />
+        )}
+      </React.Fragment>
+    );
   }
 }
 

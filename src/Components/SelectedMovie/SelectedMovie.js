@@ -2,7 +2,7 @@ import React from "react";
 import "./SelectedMovie.scss";
 
 function SelectedMovie(props) {
-  let genreList = props.genres.map((item) => <li>{item}</li>);
+  let genreList = props.genres.map((item) => <li key={Date.now}>{item}</li>);
   return (
     <section className="selectedMovie">
       <h1>{props.title}</h1>

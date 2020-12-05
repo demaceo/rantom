@@ -33,7 +33,6 @@ class App extends Component {
   };
 
   handleClick = (event) => {
-    console.log(event.target);
     getMovie(event.target.id)
       .then((response) => this.setState({ selectedMovie: response.movie }))
       .catch((err) => this.setState({ error: err }));

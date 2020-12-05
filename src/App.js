@@ -13,30 +13,11 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: 0,
+      selectedMovie: null,
       error: "",
       loader: true,
     };
   }
-
-  componentDidMount() {
-    getMovies()
-      .then((response) => this.setState({ movies: response.movies }))
-      .then(this.setState({ loader: false }))
-      .catch((err) => this.setState({ error: err }));
-  }
-
-  returnToHome = (event) => {
-    this.setState({
-      selectedMovie: 0,
-    });
-  };
-
-  handleClick = (event) => {
-    getMovie(event.target.id)
-      .then((response) => this.setState({ selectedMovie: response.movie }))
-      .catch((err) => this.setState({ error: err }));
-  };
 
   render() {
     if (this.state.loader) {
@@ -53,6 +34,11 @@ class App extends Component {
                 src="http://forgifs.com/gallery/d/301665-4/Girl-trips-spills-popcorn.gif"
                 alt="gif of lady falling"
               />
+            </Col>
+          </Row>
+          <Row className="d-flex justify-content-center">
+            <Col md="auto">
+              {this.state.error && <Alert variant="danger">{this.state.error}</Alert>}
             </Col>
           </Row>
         </Container>
@@ -91,6 +77,25 @@ class App extends Component {
       </React.Fragment>
     );
   }
+
+  componentDidMount() {
+    getMovies()
+      .then((response) => this.setState({ movies: response.movies }))
+      .then(this.setState({ loader: false }))
+      .catch((err) => this.setState({ error: err }));
+  }
+
+  returnToHome = (event) => {
+    this.setState({
+      selectedMovie: 0,
+    });
+  };
+
+  handleClick = (event) => {
+    getMovie(event.target.id)
+      .then((response) => this.setState({ selectedMovie: response.movie }))
+      .catch((err) => this.setState({ error: err }));
+  };
 }
 
 export default App;

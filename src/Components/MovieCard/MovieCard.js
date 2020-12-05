@@ -1,15 +1,28 @@
-import React from 'react'
-import './MovieCard.css'
+import React from "react";
+import { Card } from "react-bootstrap";
+import "./MovieCard.scss";
 
 function MovieCard(props) {
-    return (
-      <section className="card" onClick={props.handleClick}>
-        <img src={props.poster} alt={props.title} id={props.id} onClick={props.handleClick} />
-        <h3>{props.title}</h3>
-      </section>
-    );
-
+  return (
+    <Card
+      alt={props.title}
+      bg={"dark"}
+      id={props.id}
+      onClick={props.handleClick}
+      className="card bg-dark text-white"
+    >
+      <Card.Img className="card-img" src={props.poster} alt={props.title} />
+      <Card.ImgOverlay id={props.id}>
+        <Card.Title className="card-details">{props.title}</Card.Title>
+        <Card.Text className="card-details">
+          Released: {props.release}
+        </Card.Text>
+        <Card.Text className="card-details">
+          Average Rating: {Math.floor(props.rating)}
+        </Card.Text>
+      </Card.ImgOverlay>
+    </Card>
+  );
 }
-
 
 export default MovieCard;

@@ -1,0 +1,15 @@
+.card{
+  width: 15rem;
+}
+
+.card-img-overlay{
+  opacity: 0;
+}
+
+.card:hover > .card-img-overlay{
+  opacity: 1 !important;
+}
+
+.card:hover > .card-img{
+  opacity: 0.2;
+}

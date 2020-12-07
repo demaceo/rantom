@@ -7,6 +7,9 @@ import Catalogue from "./Components/Catalogue/Catalogue";
 import { getMovies, getMovie } from "./apiCalls";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
+import { Switch, Route, Link } from "react-router-dom";
+import Loader from "./Components/Loader/Loader";
+
 
 class App extends Component {
   constructor() {
@@ -22,27 +25,10 @@ class App extends Component {
   render() {
     if (this.state.loader) {
       return (
-        <Container>
-          <Row>
-            <Col className="d-flex justify-content-center">
-              <h1>Please wait, the movies are loading...</h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="d-flex justify-content-center">
-              <img
-                src="http://forgifs.com/gallery/d/301665-4/Girl-trips-spills-popcorn.gif"
-                alt="gif of lady falling"
-              />
-            </Col>
-          </Row>
-          <Row className="d-flex justify-content-center">
-            <Col md="auto">
-              {this.state.error && <Alert variant="danger">{this.state.error}</Alert>}
-            </Col>
-          </Row>
-        </Container>
-      );
+      <Loader 
+      error={this.state.error}
+      /> 
+      )
     }
     return (
       <React.Fragment>

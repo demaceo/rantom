@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Alert, Col } from "react-bootstrap";
-import './loader.scss';
+import './Loader.scss';
 
 function Loader(props) {
     return (

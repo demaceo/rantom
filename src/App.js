@@ -9,14 +9,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 import { Switch, Route, Link } from "react-router-dom";
 import Loader from "./Components/Loader/Loader";
-
+import Home from './Components/Home/Home';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
       error: "",
       loader: true,
     };
@@ -25,42 +24,32 @@ class App extends Component {
   render() {
     if (this.state.loader) {
       return (
-      <Loader 
-      error={this.state.error}
-      /> 
+      <Loader error={this.state.error} /> 
       )
     }
     return (
-      <React.Fragment>
-        {this.state.error && <Alert variant="danger">{this.state.error}</Alert>}
-        <NavBar returnToHome={this.returnToHome} />
-        {!this.state.selectedMovie && <FeaturedMovies />}
-        {!this.state.selectedMovie && (
-          <Row className="justify-content-md-center">
-            <Col>
-              <Catalogue
-                movies={this.state.movies}
-                handleClick={this.handleClick}
-              />
-            </Col>
-          </Row>
-        )}
-        {this.state.selectedMovie && (
+      <Switch>
+        <Route path="/selected-movie">
+          <NavBar returnToHome={this.returnToHome} />
           <SelectedMovie
-            title={this.state.selectedMovie.title}
-            tagline={this.state.selectedMovie.tagline}
-            poster={this.state.selectedMovie.poster_path}
-            backdrop={this.state.selectedMovie.backdrop_path}
-            overview={this.state.selectedMovie.overview}
-            release={this.state.selectedMovie.release_date}
-            rating={this.state.selectedMovie.average_rating}
-            genres={this.state.selectedMovie.genres}
-            budget={this.state.selectedMovie.budget}
-            revenue={this.state.selectedMovie.revenue}
-            runtime={this.state.selectedMovie.runtime}
+          // title={this.state.selectedMovie.title}
+          // tagline={this.state.selectedMovie.tagline}
+          // poster={this.state.selectedMovie.poster_path}
+          // backdrop={this.state.selectedMovie.backdrop_path}
+          // overview={this.state.selectedMovie.overview}
+          // release={this.state.selectedMovie.release_date}
+          // rating={this.state.selectedMovie.average_rating}
+          // genres={this.state.selectedMovie.genres}
+          // budget={this.state.selectedMovie.budget}
+          // revenue={this.state.selectedMovie.revenue}
+          // runtime={this.state.selectedMovie.runtime}
           />
-        )}
-      </React.Fragment>
+        </Route>
+        <Route path="/">
+          <NavBar returnToHome={this.returnToHome} />
+          <Home movies={this.state.movies} handleClick={this.handleClick} />
+        </Route>
+      </Switch>
     );
   }
 

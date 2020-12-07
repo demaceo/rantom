@@ -8,7 +8,7 @@ function MovieCard(props) {
       alt={props.title}
       bg={"dark"}
       id={props.id}
-      onClick={props.handleClick}
+      
       className="card bg-dark text-white"
     >
       <Card.Img className="card-img" src={props.poster} alt={props.title} />

@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 
 function NavBar(props) {
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="/">Rancid Tomatillos</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-      </Navbar.Collapse>
+    <Navbar className="nav-bar">
+      <Navbar.Brand id="nb-title" href="/">RANCID TOMATILLOS</Navbar.Brand>
+      {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
+      {/* <Navbar.Collapse id="basic-navbar-nav">
+      </Navbar.Collapse> */}
     </Navbar>
   );
 }

@@ -7,7 +7,7 @@ import './Home.scss';
 function Home(props) {
   return(
     <React.Fragment>
-       <FeaturedMovies />
+       {/* <FeaturedMovies /> */}
        <Catalogue
        movies={props.movies}
        handleClick={props.handleClick}

@@ -46,6 +46,7 @@ class App extends Component {
           />
         </Route>
         <Route path="/">
+          <FeaturedMovies />
           <NavBar returnToHome={this.returnToHome} />
           <Home movies={this.state.movies} handleClick={this.handleClick} />
         </Route>

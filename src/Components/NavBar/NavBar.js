@@ -7,9 +7,6 @@ function NavBar(props) {
   return (
     <Navbar className="nav-bar">
       <Navbar.Brand id="nb-title" href="/">RANCID TOMATILLOS</Navbar.Brand>
-      {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
-      {/* <Navbar.Collapse id="basic-navbar-nav">
-      </Navbar.Collapse> */}
     </Navbar>
   );
 }

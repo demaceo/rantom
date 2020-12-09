@@ -10,7 +10,7 @@ function Home(props) {
        {/* <FeaturedMovies /> */}
        <Catalogue
        movies={props.movies}
-       handleClick={props.handleClick}
+       
        />
     </React.Fragment>
   )

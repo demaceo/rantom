@@ -18,6 +18,7 @@ class App extends Component {
       movies: [],
       error: "",
       loader: true,
+      selectedMovie: 0
     };
   }
 
@@ -28,29 +29,51 @@ class App extends Component {
       )
     }
     return (
-      <Switch>
-        <Route path="/selected-movie">
-          <NavBar returnToHome={this.returnToHome} />
-          <SelectedMovie
-          // title={this.state.selectedMovie.title}
-          // tagline={this.state.selectedMovie.tagline}
-          // poster={this.state.selectedMovie.poster_path}
-          // backdrop={this.state.selectedMovie.backdrop_path}
-          // overview={this.state.selectedMovie.overview}
-          // release={this.state.selectedMovie.release_date}
-          // rating={this.state.selectedMovie.average_rating}
-          // genres={this.state.selectedMovie.genres}
-          // budget={this.state.selectedMovie.budget}
-          // revenue={this.state.selectedMovie.revenue}
-          // runtime={this.state.selectedMovie.runtime}
+      <React.Fragment>
+      
+        <Route 
+        exact path="/movie/:id" 
+        render={({ match }) => {
+          const movie = getMovie(match.params.id)
+          .then(response => this.setState({ selectedMovie: response.movie }))
+          .catch(error => this.setState({ error: error }))
+          if(!movie) {
+            return (
+            <React.Fragment>
+              <div>Sorry... that movie was not found</div>
+              <Row className="d-flex justify-content-center">
+                <Col md="auto">
+              {this.state.error && <Alert variant="danger">{this.state.error}</Alert>}
+                </Col>
+              </Row>
+          </React.Fragment>
+          )
+          }
+          return (
+            <React.Fragment>
+            <NavBar returnToHome={this.returnToHome} />
+            <SelectedMovie
+            title={this.state.selectedMovie.title}
+            tagline={this.state.selectedMovie.tagline}
+            poster={this.state.selectedMovie.poster_path}
+            backdrop={this.state.selectedMovie.backdrop_path}
+            overview={this.state.selectedMovie.overview}
+            release={this.state.selectedMovie.release_date}
+            rating={this.state.selectedMovie.average_rating}
+            genres={this.state.selectedMovie.genres}
+            budget={this.state.selectedMovie.budget}
+            revenue={this.state.selectedMovie.revenue}
+            runtime={this.state.selectedMovie.runtime}
           />
-        </Route>
-        <Route path="/">
+          </React.Fragment>)
+        }}
+        />
+        <Route exact path="/">
           <FeaturedMovies />
           <NavBar returnToHome={this.returnToHome} />
-          <Home movies={this.state.movies} handleClick={this.handleClick} />
+          <Home movies={this.state.movies} />
         </Route>
-      </Switch>
+      </React.Fragment>
     );
   }
 
@@ -65,12 +88,6 @@ class App extends Component {
     this.setState({
       selectedMovie: 0,
     });
-  };
-
-  handleClick = (event) => {
-    getMovie(event.target.id)
-      .then((response) => this.setState({ selectedMovie: response.movie }))
-      .catch((err) => this.setState({ error: err }));
   };
 }
 

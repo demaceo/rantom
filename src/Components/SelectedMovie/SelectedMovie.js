@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 function SelectedMovie(props) {
-  // let genreList = props.genres.map((item) => <li key={Date.now}>{item}</li>);
+  let genreList = props.genres.map((item) => <li key={Date.now}>{item}</li>);
   return (
       <section className="selectedMovie">
         <h1>{props.title}</h1>
@@ -17,13 +17,12 @@ function SelectedMovie(props) {
         <p>Overview: {props.overview}</p>
         <p>Release Date: {props.release}</p>
         <p>Rating: {props.rating}</p>
-        {/* <ul>Genres: {genreList}</ul> */}
+        <ul>Genres: {genreList}</ul>
         <p>Budget: ${props.budget}</p>
         <p>Revenue: ${props.revenue}</p>
         <p>Duration: {props.runtime} minutes</p>
       </section>
   );
-  componentDidMount()
 }
 
 export default SelectedMovie;

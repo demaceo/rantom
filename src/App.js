@@ -30,7 +30,6 @@ class App extends Component {
     }
     return (
       <React.Fragment>
-      
         <Route 
         exact path="/movie/:id" 
         render={({ match }) => {
@@ -43,11 +42,13 @@ class App extends Component {
               <div>Sorry... that movie was not found</div>
               <Row className="d-flex justify-content-center">
                 <Col md="auto">
-              {this.state.error && <Alert variant="danger">{this.state.error}</Alert>}
+                {this.state.error && <Alert variant="danger">{this.state.error}</Alert>}
                 </Col>
               </Row>
           </React.Fragment>
-          )
+          )}
+          if (this.state.selectedMovie.id !== parseInt(match.params.id)) {
+            return <Loader error={this.state.error} />;
           }
           return (
             <React.Fragment>

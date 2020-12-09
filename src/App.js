@@ -7,60 +7,53 @@ import Catalogue from "./Components/Catalogue/Catalogue";
 import { getMovies, getMovie } from "./apiCalls";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
+import { Switch, Route, Link } from "react-router-dom";
+import Loader from "./Components/Loader/Loader";
+import Home from './Components/Home/Home';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
       error: "",
       loader: true,
+      selectedMovie: 0
     };
   }
 
   render() {
     if (this.state.loader) {
       return (
-        <Container>
-          <Row>
-            <Col className="d-flex justify-content-center">
-              <h1>Please wait, the movies are loading...</h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="d-flex justify-content-center">
-              <img
-                src="http://forgifs.com/gallery/d/301665-4/Girl-trips-spills-popcorn.gif"
-                alt="gif of lady falling"
-              />
-            </Col>
-          </Row>
-          <Row className="d-flex justify-content-center">
-            <Col md="auto">
-              {this.state.error && <Alert variant="danger">{this.state.error}</Alert>}
-            </Col>
-          </Row>
-        </Container>
-      );
+      <Loader error={this.state.error} /> 
+      )
     }
     return (
       <React.Fragment>
-        {this.state.error && <Alert variant="danger">{this.state.error}</Alert>}
-        <NavBar returnToHome={this.returnToHome} />
-        {!this.state.selectedMovie && <FeaturedMovies />}
-        {!this.state.selectedMovie && (
-          <Row className="justify-content-md-center">
-            <Col>
-              <Catalogue
-                movies={this.state.movies}
-                handleClick={this.handleClick}
-              />
-            </Col>
-          </Row>
-        )}
-        {this.state.selectedMovie && (
-          <SelectedMovie
+        <Route 
+        exact path="/movie/:id" 
+        render={({ match }) => {
+          const movie = getMovie(match.params.id)
+          .then(response => this.setState({ selectedMovie: response.movie }))
+          .catch(error => this.setState({ error: error }))
+          if(!movie) {
+            return (
+            <React.Fragment>
+              <div>Sorry... that movie was not found</div>
+              <Row className="d-flex justify-content-center">
+                <Col md="auto">
+                {this.state.error && <Alert variant="danger">{this.state.error}</Alert>}
+                </Col>
+              </Row>
+          </React.Fragment>
+          )}
+          if (this.state.selectedMovie.id !== parseInt(match.params.id)) {
+            return <Loader error={this.state.error} />;
+          }
+          return (
+            <React.Fragment>
+            <NavBar returnToHome={this.returnToHome} />
+            <SelectedMovie
             title={this.state.selectedMovie.title}
             tagline={this.state.selectedMovie.tagline}
             poster={this.state.selectedMovie.poster_path}
@@ -73,7 +66,14 @@ class App extends Component {
             revenue={this.state.selectedMovie.revenue}
             runtime={this.state.selectedMovie.runtime}
           />
-        )}
+          </React.Fragment>)
+        }}
+        />
+        <Route exact path="/">
+          <FeaturedMovies />
+          <NavBar returnToHome={this.returnToHome} />
+          <Home movies={this.state.movies} />
+        </Route>
       </React.Fragment>
     );
   }
@@ -89,12 +89,6 @@ class App extends Component {
     this.setState({
       selectedMovie: 0,
     });
-  };
-
-  handleClick = (event) => {
-    getMovie(event.target.id)
-      .then((response) => this.setState({ selectedMovie: response.movie }))
-      .catch((err) => this.setState({ error: err }));
   };
 }
 

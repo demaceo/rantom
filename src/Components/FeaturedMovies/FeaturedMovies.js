@@ -8,39 +8,72 @@ function FeaturedMovies() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1940&q=80"
-          alt="Movie Clacker"
+          src="http://www.avalontheatregj.com/sites/default/files/Spiderman%20Into%20the%20Spiderverse.jpg"
+          alt="Spider-Man"
         />
-        <Carousel.Caption>
-          <h3>Movies and Stuff</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://images.unsplash.com/photo-1521967906867-14ec9d64bee8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-          alt="bed eater"
+          src="https://images.indianexpress.com/2019/08/the-dark-knight-759.jpg"
+          alt="Dark-Knight"
         />
-
-        <Carousel.Caption>
-          <h3>Don't eat in the bed</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://images.unsplash.com/photo-1485095329183-d0797cdc5676?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80"
-          alt="Covid getters"
+          src="https://miro.medium.com/max/1400/0*vej3BNv4ZI9lb6C6.jpg"
+          alt="Your-Name"
         />
 
-        <Carousel.Caption>
-          <h3>Y'all gonna get covid</h3>
+        {/* <Carousel.Caption>
+          <h3>Your Name</h3>
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
-        </Carousel.Caption>
+        </Carousel.Caption> */}
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://w.wallha.com/ws/12/7T52hQYX.jpg"
+          alt="klaus"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://lh3.googleusercontent.com/proxy/HxzDeLbVnOneqb9nOKo7FMBfq3OZv5n2njZe9_mwIwOqjJyV6grnQGcJcvfhGvETTkRPZTzjKAJfgdTz_myRR21FTX3kZ1relScqb3lVJA7Mxw"
+          alt="Ex-machina"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://imgs.capitalfm.com/images/21915?width=1920&crop=16_9&signature=zqppGU-IICYlK2VanWJcvaoTSGM="
+          alt="haunting-of-hillhouse"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://thefilmautopsy.files.wordpress.com/2016/11/564300398_1280x720.jpg"
+          alt="swiss-army-man"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://getyourcomicon.co.uk/wp-content/uploads/2018/06/WatchmenTV-comiclogo-header.jpg"
+          alt="watchmen"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://theaggie.org/wp-content/uploads/2017/04/getout_ar_genesiating-01.png"
+          alt="get-out"
+        />
       </Carousel.Item>
     </Carousel>
   );

@@ -7,6 +7,7 @@ import Catalogue from "./Components/Catalogue/Catalogue";
 import { getMovies, getMovie } from "./apiCalls";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
+import { MemoryRouter } from "react-router-dom";
 import { Switch, Route, Link } from "react-router-dom";
 import Loader from "./Components/Loader/Loader";
 import Home from './Components/Home/Home';
@@ -34,8 +35,12 @@ class App extends Component {
         exact path="/movie/:id" 
         render={({ match }) => {
           const movie = getMovie(match.params.id)
-          .then(response => this.setState({ selectedMovie: response.movie }))
-          .catch(error => this.setState({ error: error }))
+            .then((response) => {
+              if (this.state.selectedMovie.id !== parseInt(match.params.id)) {
+                this.setState({ selectedMovie: response.movie });
+              }
+            })
+            .catch((error) => this.setState({ error: error }));
           if(!movie) {
             return (
             <React.Fragment>

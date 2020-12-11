@@ -25,13 +25,6 @@ function FeaturedMovies() {
           src="https://miro.medium.com/max/1400/0*vej3BNv4ZI9lb6C6.jpg"
           alt="Your-Name"
         />
-
-        {/* <Carousel.Caption>
-          <h3>Your Name</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption> */}
       </Carousel.Item>
       <Carousel.Item>
         <img

@@ -3,6 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
 import { getMovies, getMovie } from "./apiCalls";
+import { MemoryRouter } from "react-router-dom";
 jest.mock("./apiCalls.js");
 
 const mockMoviesList = {
@@ -51,13 +52,15 @@ describe("App", () => {
   });
 
   it("renders a navbar, a carousel, and movie cards", async () => {
-    render(<App />);
+       <MemoryRouter>
+         render(
+         <App />
+         );
+       </MemoryRouter>;
     const navBar = await waitFor(() => screen.getByText("Rancid Tomatillos"));
     const carousel = await waitFor(() => screen.getByTitle("Featured Movies"));
     const movieCard1 = await waitFor(() => screen.getByText("Movie Title"));
-    const movieCard2 = await waitFor(() =>
-      screen.getByText("Second Movie Title")
-    );
+    const movieCard2 = await waitFor(() => screen.getByText("Second Movie Title"));
 
     expect(navBar).toBeInTheDocument();
     expect(carousel).toBeInTheDocument();
@@ -66,7 +69,11 @@ describe("App", () => {
   });
 
   it("renders a movie's details when the movie card is clicked", async () => {
-    render(<App />);
+    <MemoryRouter>
+      render(
+      <App />
+      );
+    </MemoryRouter>;
 
     const movieCard1 = await waitFor(() => screen.getByAltText("Movie Title"));
 

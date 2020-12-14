@@ -8,7 +8,6 @@ function Home(props) {
     <React.Fragment>
        <Catalogue
        movies={props.movies}
-       
        />
     </React.Fragment>
   )

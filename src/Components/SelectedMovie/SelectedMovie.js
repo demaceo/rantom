@@ -4,13 +4,14 @@ import "./SelectedMovie.scss";
 function SelectedMovie(props) {
   let genreList = props.genres.map((item) => <li key={Date.now}>{item}</li>);
   return (
-    <React.Fragment>
+    <>
       <section className="selectedMovie">
         <img
           width="100%"
           src={props.backdrop}
           alt={`backdrop for ${props.title}`}
         />
+       
         <section className="movie-info">
           <section>
           <h1>{props.title}</h1>
@@ -27,7 +28,7 @@ function SelectedMovie(props) {
           </section>
         </section>
       </section>
-    </React.Fragment>
+    </>
   );
 }
 

@@ -17,7 +17,7 @@ function SelectedMovie(props) {
           <h2>{props.tagline}</h2>
           </section>
           <section>
-          <p><u>Overview</u>: {props.overview}</p>
+          <p><u>Overview:</u> {props.overview}</p>
           <p><u>Release Date:</u> {props.release}</p>
           <p><u>Rating:</u> {props.rating}</p>
           <ul><u>Genres:</u> {genreList}</ul>

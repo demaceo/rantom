@@ -30,7 +30,7 @@ class App extends Component {
       )
     }
     return (
-      <React.Fragment>
+      <>
         <Route 
         exact path="/movie/:id" 
         render={({ match }) => {
@@ -43,20 +43,20 @@ class App extends Component {
             .catch((error) => this.setState({ error: error }));
           if(!movie) {
             return (
-            <React.Fragment>
+            <>
               <div>Sorry... that movie was not found</div>
               <Row className="d-flex justify-content-center">
                 <Col md="auto">
                 {this.state.error && <Alert variant="danger">{this.state.error}</Alert>}
                 </Col>
               </Row>
-          </React.Fragment>
+          </>
           )}
           if (this.state.selectedMovie.id !== parseInt(match.params.id)) {
             return <Loader error={this.state.error} />;
           }
           return (
-            <React.Fragment>
+            <>
             <NavBar returnToHome={this.returnToHome} />
             <SelectedMovie
             title={this.state.selectedMovie.title}
@@ -71,7 +71,7 @@ class App extends Component {
             revenue={this.state.selectedMovie.revenue}
             runtime={this.state.selectedMovie.runtime}
           />
-          </React.Fragment>)
+          </>)
         }}
         />
         <Route exact path="/">
@@ -79,7 +79,7 @@ class App extends Component {
           <NavBar returnToHome={this.returnToHome} />
           <Home movies={this.state.movies} />
         </Route>
-      </React.Fragment>
+      </>
     );
   }
 

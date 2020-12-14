@@ -3,7 +3,7 @@ import Home from "./Home";
 import { render, screen } from "@testing-library/react";
 import { getMovies } from "../../apiCalls";
 
-describe("Home", () => {
+describe.skip("Home", () => {
     it("should render a Catalogue component", () => {
 
     })

@@ -77,7 +77,7 @@ class App extends Component {
         />
         <Route exact path="/">
           <FeaturedMovies />
-          <NavBar onClick={this.clearSelected}/>
+          <NavBar onClick={this.clearSelected} />
           <Home movies={this.state.movies} />
         </Route>
       </>
@@ -92,10 +92,8 @@ class App extends Component {
   }
 
   clearSelected() {
-    this.setState({ selectedMovie: {} })
+    this.setState({ selectedMovie: {} });
   }
-
-
 }
 
 export default App;

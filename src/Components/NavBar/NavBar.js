@@ -4,8 +4,10 @@ import "./NavBar.scss";
 
 function NavBar(props) {
   return (
-    <Navbar className="nav-bar">
-      <Navbar.Brand id="nb-title" href="/">RANCID TOMATILLOS</Navbar.Brand>
+    <Navbar className="nav-bar" title="Nav Bar">
+      <Navbar.Brand id="nb-title" href="/">
+        RANCID TOMATILLOS
+      </Navbar.Brand>
     </Navbar>
   );
 }

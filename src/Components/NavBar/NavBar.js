@@ -5,7 +5,7 @@ import "./NavBar.scss";
 
 function NavBar(props) {
   return (
-    <Navbar className="nav-bar">
+    <Navbar className="nav-bar" title="Nav Bar">
       <Link id="nb-title" to="/">
         RANCID TOMATILLOS
       </Link>

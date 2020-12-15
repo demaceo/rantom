@@ -41,8 +41,16 @@ describe("Catalogue", () => {
         expect(cards[0]).toBeInTheDocument();
     })
 
-    it.skip("should display all movies", () => {
-        render(<Catalogue />);
+    it("should display all movies", () => {
+      render(
+        <MemoryRouter>
+          <Catalogue movies={ mockMoviesList.movies } />
+        </MemoryRouter>);
+
+      const cards = screen.getAllByRole("article")
+
+      expect(cards[0]).toBeInTheDocument();
+      expect(cards[1]).toBeInTheDocument();
     })
 })
 

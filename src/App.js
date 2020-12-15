@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import { Container, Row, Alert, Col } from "react-bootstrap";
+import { Row, Alert, Col } from "react-bootstrap";
 import NavBar from "./Components/NavBar/NavBar";
 import FeaturedMovies from "./Components/FeaturedMovies/FeaturedMovies";
 import SelectedMovie from "./Components/SelectedMovie/SelectedMovie";
-import Catalogue from "./Components/Catalogue/Catalogue";
 import { getMovies, getMovie } from "./apiCalls";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
-import { MemoryRouter } from "react-router-dom";
-import { Switch, Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Loader from "./Components/Loader/Loader";
 import Home from './Components/Home/Home';
 
@@ -19,20 +17,16 @@ class App extends Component {
       movies: [],
       error: "",
       loader: true,
-      selectedMovie: 0
+      selectedMovie: {}
     };
   }
 
   render() {
-    if (this.state.loader) {
-      return (
-      <Loader error={this.state.error} /> 
-      )
-    }
+    if (this.state.loader) { <Loader error={this.state.error} /> }
     return (
       <>
-        <Route 
-        exact path="/movie/:id" 
+        <Route
+        exact path="/movie/:id"
         render={({ match }) => {
           const movie = getMovie(match.params.id)
             .then((response) => {
@@ -40,7 +34,7 @@ class App extends Component {
                 this.setState({ selectedMovie: response.movie });
               }
             })
-            .catch((error) => this.setState({ error: error }));
+            .catch(error => this.setState({ error: error }));
           if(!movie) {
             return (
             <>
@@ -89,12 +83,6 @@ class App extends Component {
       .then(this.setState({ loader: false }))
       .catch((err) => this.setState({ error: err }));
   }
-
-  returnToHome = (event) => {
-    this.setState({
-      selectedMovie: 0,
-    });
-  };
 }
 
 export default App;

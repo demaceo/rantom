@@ -11,6 +11,7 @@ import { MemoryRouter } from "react-router-dom";
 import { Switch, Route, Link } from "react-router-dom";
 import Loader from "./Components/Loader/Loader";
 import Home from './Components/Home/Home';
+import DropMenu from './Components/DropMenu/DropMenu';
 
 class App extends Component {
   constructor() {
@@ -31,6 +32,22 @@ class App extends Component {
     }
     return (
       <>
+      <Route exact path="/movies/ratings/:rating"
+       render={({ match }) => {
+         const filteredMovies = this.state.movies.filter(movie => {
+           return Math.round(movie.average_rating) === parseInt(match.params.rating)
+             })
+            
+         return (
+           <>
+             <FeaturedMovies />
+             <NavBar returnToHome={this.returnToHome} />
+             <DropMenu movies={this.state.movies} />
+             <Home movies={filteredMovies} />
+           </>
+         );
+            }}
+      />
         <Route 
         exact path="/movie/:id" 
         render={({ match }) => {
@@ -77,6 +94,7 @@ class App extends Component {
         <Route exact path="/">
           <FeaturedMovies />
           <NavBar returnToHome={this.returnToHome} />
+          <DropMenu movies={this.state.movies} />
           <Home movies={this.state.movies} />
         </Route>
       </>

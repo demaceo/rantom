@@ -20,7 +20,7 @@ function Loader(props) {
           </Row>
           <Row className="d-flex justify-content-center">
             <Col md="auto">
-              {props.error && <Alert variant="danger">{props.error}</Alert>}
+              {props.error && <Alert variant="danger">{`${props.error}`}</Alert>}
             </Col>
           </Row>
         </Container>

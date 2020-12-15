@@ -1,13 +1,14 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./NavBar.scss";
 
 function NavBar(props) {
   return (
     <Navbar className="nav-bar" title="Nav Bar">
-      <Navbar.Brand id="nb-title" href="/">
+      <Link id="nb-title" to="/">
         RANCID TOMATILLOS
-      </Navbar.Brand>
+      </Link>
     </Navbar>
   );
 }

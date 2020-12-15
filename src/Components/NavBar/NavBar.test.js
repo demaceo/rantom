@@ -1,16 +1,17 @@
-import React from 'react';
+import React from "react";
 import { render, screen } from "@testing-library/react";
-import NavBar from './NavBar';
-import userEvent from '@testing-library/user-event';
+import NavBar from "./NavBar";
+import { MemoryRouter } from "react-router-dom";
 
-const returnHome = jest.fn();
 describe("NavBar", () => {
-    it("should render a navbar with a home button", () => {
-        render(<NavBar />);
+  it("should render a navbar with a home button", () => {
+    render(
+      <MemoryRouter>
+        <NavBar />
+      </MemoryRouter>
+    );
+    const navBar = screen.getByText("RANCID TOMATILLOS");
 
-        const navBar = screen.getByText("RANCID TOMATILLOS");
-        
-        userEvent.click(navBar);
-        expect(navBar).toBeInTheDocument();
-    });
-})
+    expect(navBar).toBeInTheDocument();
+  });
+});

@@ -5,11 +5,11 @@ import './Home.scss';
 
 function Home(props) {
   return(
-    <React.Fragment>
+    <>
        <Catalogue
        movies={props.movies}
        />
-    </React.Fragment>
+    </>
   )
 }
 

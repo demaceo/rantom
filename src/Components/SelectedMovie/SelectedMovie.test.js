@@ -20,7 +20,7 @@ const mockMovieData = {
 };
 
 
-describe.skip("Selected Movie", () => {
+describe("Selected Movie", () => {
   it("Should render the title, tagline, movie backdrop, overview, release date, rating, genres, budget, revenue, and runtime", () => {
     render(
       <SelectedMovie

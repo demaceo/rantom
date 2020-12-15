@@ -31,12 +31,12 @@ const mockMoviesList = {
 describe.skip("Catalogue", () => {
 
     it("should display Movie Card component", () => {
-        render(<Catalogue />);
+        render(<Catalogue movies={ getMovies } />);
 
-        expect(<MovieCard />).toBeInTheDocument();
+        expect().toBeInTheDocument();
     })
     it.skip("should display all movies", () => {
-
+        render(<Catalogue />);
     })
 })
 

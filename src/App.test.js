@@ -45,7 +45,7 @@ const mockMovieData = {
   },
 };
 
-describe.skip("App", () => {
+describe("App", () => {
   beforeEach(() => {
     getMovies.mockResolvedValueOnce(mockMoviesList);
     getMovie.mockResolvedValueOnce(mockMovieData);

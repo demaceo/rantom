@@ -1,18 +1,18 @@
 import React from "react";
 import FeaturedMovies from "./FeaturedMovies";
 import { render, screen } from "@testing-library/react";
-import { Carousel } from "react-bootstrap";
+
 
 describe("Featured Movies", () => {
-    it("should render a carousel", () => {
+    it("should render each featured movie", () => {
         render(<FeaturedMovies />);
-        const featuredOne = screen.getByText("Spider-Man")
-        const featuredTwo = screen.getByText("Dark-Knight");
-        const featuredThree = screen.getByText("Your-Name");
-        const featuredFour = screen.getByText("klaus");
-        const featuredFive = screen.getByText("Ex-machina");
-        const featuredSix = screen.getByText("haunting-of-hillhouse");
-        const featuredSeven = screen.getByText("swiss-army-man");
+        const featuredOne = screen.getByAltText("Spider-Man")
+        const featuredTwo = screen.getByAltText("Dark-Knight");
+        const featuredThree = screen.getByAltText("Your-Name");
+        const featuredFour = screen.getByAltText("klaus");
+        const featuredFive = screen.getByAltText("Ex-machina");
+        const featuredSix = screen.getByAltText("haunting-of-hillhouse");
+        const featuredSeven = screen.getByAltText("swiss-army-man");
 
         expect(featuredOne).toBeInTheDocument();
         expect(featuredTwo).toBeInTheDocument();

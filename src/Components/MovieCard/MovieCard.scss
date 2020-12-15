@@ -1,15 +1,29 @@
 .card{
   width: 15rem;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  margin: .2em;
 }
 
 .card-img-overlay{
   opacity: 0;
+
 }
 
 .card:hover > .card-img-overlay{
   opacity: 1 !important;
+  
+  
+  
 }
 
 .card:hover > .card-img{
   opacity: 0.2;
+}
+
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.025);
+  z-index: 0
 }

@@ -36,7 +36,7 @@ function FeaturedMovies() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://lh3.googleusercontent.com/proxy/HxzDeLbVnOneqb9nOKo7FMBfq3OZv5n2njZe9_mwIwOqjJyV6grnQGcJcvfhGvETTkRPZTzjKAJfgdTz_myRR21FTX3kZ1relScqb3lVJA7Mxw"
+          src="https://tiponautas.com/wp-content/uploads/2015/05/ex-machina.jpg"
           alt="Ex-machina"
         />
       </Carousel.Item>

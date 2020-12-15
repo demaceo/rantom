@@ -52,35 +52,34 @@ describe("App", () => {
   });
 
   it("renders a navbar, a carousel, and movie cards", async () => {
+       render(
        <MemoryRouter>
-         render(
          <App />
-         );
-       </MemoryRouter>;
-    const navBar = await waitFor(() => screen.getByText("Rancid Tomatillos"));
+       </MemoryRouter>
+       );
+    const navBar = screen.getByText("RANCID TOMATILLOS");
     const carousel = await waitFor(() => screen.getByTitle("Featured Movies"));
     const movieCard1 = await waitFor(() => screen.getByText("Movie Title"));
     const movieCard2 = await waitFor(() => screen.getByText("Second Movie Title"));
 
-    expect(navBar).toBeInTheDocument();
     expect(carousel).toBeInTheDocument();
     expect(movieCard1).toBeInTheDocument();
     expect(movieCard2).toBeInTheDocument();
   });
 
   it("renders a movie's details when the movie card is clicked", async () => {
+    render(
     <MemoryRouter>
-      render(
       <App />
-      );
-    </MemoryRouter>;
+    </MemoryRouter>
+    );
 
-    const movieCard1 = await waitFor(() => screen.getByAltText("Movie Title"));
+    const movieCard1 = await waitFor(() => screen.getByText("Movie Title"));
 
     userEvent.click(movieCard1);
 
     const tagline = await waitFor(() =>
-    screen.getByText("Movie Tagline"))
+    screen.getByText("Movie Tagline"));
 
 
     expect(tagline).toBeInTheDocument()

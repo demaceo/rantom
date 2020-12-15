@@ -1,10 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import MovieCard from "./MovieCard";
-import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 
-const handleClick = jest.fn();
 const mockMovieCard = {
   movies: [
     {
@@ -28,7 +26,7 @@ const mockMovieCard = {
   ],
 };
 
-describe.skip("MovieCard", () => {
+describe("MovieCard", () => {
   it("should display a poster, title, release Date, and rating", () => {
     render(
       <MemoryRouter>

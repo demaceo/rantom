@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import Catalogue from "./Catalogue";
-import MovieCard from '../MovieCard/MovieCard';
 import { getMovies } from "../../apiCalls";
+import { MemoryRouter } from "react-router-dom";
 jest.mock("../../apiCalls.js");
 
 const mockMoviesList = {
@@ -28,13 +28,19 @@ const mockMoviesList = {
   ],
 };
 
-describe.skip("Catalogue", () => {
+describe("Catalogue", () => {
 
     it("should display Movie Card component", () => {
-        render(<Catalogue movies={ getMovies } />);
+        render(
+          <MemoryRouter>
+            <Catalogue movies={ mockMoviesList.movies } />
+          </MemoryRouter>);
 
-        expect().toBeInTheDocument();
+        const cards = screen.getAllByRole("article")
+
+        expect(cards[0]).toBeInTheDocument();
     })
+
     it.skip("should display all movies", () => {
         render(<Catalogue />);
     })

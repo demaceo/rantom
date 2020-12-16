@@ -1,8 +1,8 @@
 [GitHub Deployed Page](https://demaceo.github.io/rantom/)
 
 ---
-# Rancid Tomatillos'
-###### A simple yet bold site to view movies
+# Rancid Tomatillos
+###### A simple, yet bold, site to view movies and their ratings
 
 
 ---
@@ -16,7 +16,7 @@
 
 ![Welcome to Rancid Tomatillos](https://media.giphy.com/media/0aJoS84OErWv5MlCmw/giphy.gif)
 
-The Rancid Tomatillos website is based on project criteria laid out for Turing Front End students in weeks 1-3 of Mod 3 in their time at Turing, as laid out [here](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html). The project promotes students to gain competency with React fundamentals by creating a multi-page UX using Router as well as learning how to test React components & asynchronous JavaScript.
+The Rancid Tomatillos website is based on project criteria laid out [here](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html) for Turing Front End students in weeks 1-3 of Mod 3. The project promotes students to gain competency with React fundamentals by creating a multi-page UX using Router as well as learning how to test React components & asynchronous JavaScript.
 
 The project emphasises proper interactions between components, thusly pushing students to think carefully and critically about their logic to maintain the "data down, actions up" principles. The project also increases the scope of employing software developing skills to the planning stages - encouraging students to use project management tools and utilize wireframing and mind-mapping.
 

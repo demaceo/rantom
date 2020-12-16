@@ -2,7 +2,7 @@ import React from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import "./DropMenu.scss";
 
-export default function DropMenu(props) {
+export default function DropMenu() {
     return (
       <DropdownButton id="dropdown-basic-button" title="Filter by Ratings">
         <Dropdown.Item href="/">All</Dropdown.Item>

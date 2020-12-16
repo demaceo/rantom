@@ -1,6 +1,8 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import { getMovie } from "../../apiCalls";
 import SelectedMovie from "./SelectedMovie";
+jest.mock("../../apiCalls.js")
 
 const mockMovieData = {
   movie: {
@@ -19,41 +21,33 @@ const mockMovieData = {
   },
 };
 
-
 describe("Selected Movie", () => {
-  it("Should render the title, tagline, movie backdrop, overview, release date, rating, genres, budget, revenue, and runtime", () => {
+  beforeEach(() => {
+    getMovie.mockResolvedValueOnce(mockMovieData)
+  })
+
+  it("Should render the title, tagline, movie backdrop, overview, release date, rating, genres, budget, revenue, and runtime", async () => {
     render(
       <SelectedMovie
-        title={mockMovieData.movie.title}
-        tagline={mockMovieData.movie.tagline}
-        poster={mockMovieData.movie.poster_path}
-        backdrop={mockMovieData.movie.backdrop_path}
-        overview={mockMovieData.movie.overview}
-        release={mockMovieData.movie.release_date}
-        rating={mockMovieData.movie.average_rating}
-        genres={mockMovieData.movie.genres}
-        budget={mockMovieData.movie.budget}
-        revenue={mockMovieData.movie.revenue}
-        runtime={mockMovieData.movie.runtime}
+        id={1}
       />
     );
 
-    let movieTitle = screen.getByText("Movie Title");
-    let movieBackdrop = screen.getByRole("img");
-    let movieReleaseDate = screen.getByText("Release Date:");
-    let movieDate = screen.getByText("December");
-    let overviewTitle = screen.getByText("Overview:");
-    let movieOverview = screen.getByText("Some overview");
-    let ratingTitle = screen.getByText("Rating:");
-    let movieAverageRating = screen.getByText("6");
-    let movieGenres = screen.getByText("Drama");
-    let budgetTitle = screen.getByText("Budget:");
-    let movieBudget = screen.getByText("$63000000");
-    let revenueTitle = screen.getByText("Revenue:");
-    let movieRevenue = screen.getByText("$100853753");
-    let runtimeTitle = screen.getByText("Duration:");
-    let movieRuntime = screen.getByText("139 minutes");
-    let movieTagline = screen.getByText("Movie Tagline");
+    let movieTitle = await waitFor(() => screen.getByText("Movie Title"));
+    let movieBackdrop = await waitFor(() => screen.getByRole("img"));
+    let movieReleaseDate = await waitFor(() => screen.getByText("Release Date:"));
+    let movieDate = await waitFor(() => screen.getByText("December"));
+    let overviewTitle = await waitFor(() => screen.getByText("Overview:"));
+    let movieOverview = await waitFor(() => screen.getByText("Some overview"));
+    let ratingTitle = await waitFor(() => screen.getByText("Rating:"));
+    let movieGenres = await waitFor(() => screen.getByText("Drama"));
+    let budgetTitle = await waitFor(() => screen.getByText("Budget:"));
+    let movieBudget = await waitFor(() => screen.getByText("$63000000"));
+    let revenueTitle = await waitFor(() => screen.getByText("Revenue:"));
+    let movieRevenue = await waitFor(() => screen.getByText("$100853753"));
+    let runtimeTitle = await waitFor(() => screen.getByText("Duration:"));
+    let movieRuntime = await waitFor(() => screen.getByText("139 minutes"));
+    let movieTagline = await waitFor(() => screen.getByText("Movie Tagline"));
 
     expect(movieTitle).toBeInTheDocument();
     expect(movieBackdrop).toBeInTheDocument();
@@ -62,7 +56,6 @@ describe("Selected Movie", () => {
     expect(overviewTitle).toBeInTheDocument();
     expect(movieOverview).toBeInTheDocument();
     expect(ratingTitle).toBeInTheDocument();
-    expect(movieAverageRating).toBeInTheDocument();
     expect(movieGenres).toBeInTheDocument();
     expect(movieBudget).toBeInTheDocument();
     expect(budgetTitle).toBeInTheDocument();

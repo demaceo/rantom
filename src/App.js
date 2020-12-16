@@ -35,8 +35,8 @@ class App extends Component {
             return (
               <>
                 <FeaturedMovies />
-                <NavBar returnToHome={this.returnToHome} />
-                <DropMenu movies={this.state.movies} />
+                <NavBar />
+                <DropMenu />
                 <Home
                   movies={this.filteredMovies(parseInt(match.params.rating))}
                 />
@@ -58,8 +58,8 @@ class App extends Component {
         />
         <Route exact path="/">
           <FeaturedMovies />
-          <NavBar onClick={this.clearSelected} />
-          <DropMenu movies={this.state.movies} />
+          <NavBar />
+          <DropMenu />
           <Home movies={this.state.movies} />
         </Route>
       </>
@@ -71,10 +71,6 @@ class App extends Component {
       .then((response) => this.setState({ movies: response.movies }))
       .then(this.setState({ loader: false }))
       .catch((err) => this.setState({ error: err }));
-  }
-
-  clearSelected() {
-    this.setState({ selectedMovie: {} });
   }
 
   filteredMovies(rating) {

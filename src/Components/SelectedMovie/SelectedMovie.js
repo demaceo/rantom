@@ -13,9 +13,7 @@ class SelectedMovie extends Component {
 
   render() {
     if (!this.state.movie.id) {
-      return(
-      <Loader error={this.state.error}/>
-      )
+      return <Loader error={this.state.error} />;
     }
     return (
       <>
@@ -42,16 +40,26 @@ class SelectedMovie extends Component {
                 <u>Rating:</u> {this.tomatilloRating()}
               </p>
               <ul>
-                <u>Genres:</u> {this.state.movie.genres ? this.generateGenreList() : "N/A"}
+                <u>Genres:</u>{" "}
+                {this.state.movie.genres ? this.generateGenreList() : "N/A"}
               </ul>
               <p>
-                <u>Budget:</u> {this.state.movie.budget ? "$" + this.state.movie.budget : "N/A"}
+                <u>Budget:</u>{" "}
+                {this.state.movie.budget
+                  ? "$" + this.state.movie.budget
+                  : "N/A"}
               </p>
               <p>
-                <u>Revenue:</u> {this.state.movie.revenue ? "$" + this.state.movie.revenue : "N/A"}
+                <u>Revenue:</u>{" "}
+                {this.state.movie.revenue
+                  ? "$" + this.state.movie.revenue
+                  : "N/A"}
               </p>
               <p>
-                <u>Duration:</u> {this.state.movie.runtime ? this.state.movie.runtime + " minutes" : "N/A"}
+                <u>Duration:</u>{" "}
+                {this.state.movie.runtime
+                  ? this.state.movie.runtime + " minutes"
+                  : "N/A"}
               </p>
             </section>
           </section>
@@ -67,15 +75,17 @@ class SelectedMovie extends Component {
   }
 
   generateGenreList() {
-    return this.state.movie.genres.map((item) => <li key={Date.now}>{item}</li>);
+    return this.state.movie.genres.map((item) => (
+      <li key={Date.now}>{item}</li>
+    ));
   }
 
   tomatilloRating() {
-    let array = []
-    while(array.length !== Math.round(this.state.movie.average_rating)){
-      array.push(" ⭐️ ")
+    let array = [];
+    while (array.length !== Math.round(this.state.movie.average_rating)) {
+      array.push(" ⭐️ ");
     }
-    return array
+    return array;
   }
 }
 

@@ -1,29 +1,24 @@
-.card{
+.card {
   width: 15rem;
   cursor: pointer;
-  transition: all .2s ease-in-out;
-  margin: .2em;
+  transition: all 0.2s ease-in-out;
+  margin: 0.2em;
 }
 
-.card-img-overlay{
+.card-img-overlay {
   opacity: 0;
-
 }
 
-.card:hover > .card-img-overlay{
+.card:hover > .card-img-overlay {
   opacity: 1 !important;
-  
-  
-  
 }
 
-.card:hover > .card-img{
+.card:hover > .card-img {
   opacity: 0.2;
 }
-
 
 .card:hover {
   cursor: pointer;
   transform: scale(1.025);
-  z-index: 0
+  z-index: 0;
 }

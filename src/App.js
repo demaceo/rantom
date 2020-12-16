@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import NavBar from "./Components/NavBar/NavBar";
 import FeaturedMovies from "./Components/FeaturedMovies/FeaturedMovies";
 import SelectedMovie from "./Components/SelectedMovie/SelectedMovie";
-import { getMovies, getMovie } from "./apiCalls";
+import { getMovies } from "./apiCalls";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 import { Route } from "react-router-dom";

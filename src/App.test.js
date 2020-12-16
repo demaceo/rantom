@@ -97,6 +97,8 @@ describe("App", () => {
 
     userEvent.click(movieCards[0]);
 
-    expect(await waitFor(() => screen.getByText("Movie Tagline"))).toBeInTheDocument();
+    expect(
+      await waitFor(() => screen.getByText("Movie Tagline"))
+    ).toBeInTheDocument();
   });
 });

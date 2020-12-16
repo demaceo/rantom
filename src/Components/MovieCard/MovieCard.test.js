@@ -30,12 +30,12 @@ describe("MovieCard", () => {
   it("should display a poster, title, release Date, and rating", () => {
     render(
       <MemoryRouter>
-      <MovieCard
-        poster={mockMovieCard.movies[0].poster_path}
-        title={mockMovieCard.movies[0].title}
-        release={mockMovieCard.movies[0].release_date}
-        rating={mockMovieCard.movies[0].average_rating}
-      />
+        <MovieCard
+          poster={mockMovieCard.movies[0].poster_path}
+          title={mockMovieCard.movies[0].title}
+          release={mockMovieCard.movies[0].release_date}
+          rating={mockMovieCard.movies[0].average_rating}
+        />
       </MemoryRouter>
     );
     const movieCardTitle = screen.getByText("Movie Title");

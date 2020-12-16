@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import { getMovie } from "../../apiCalls";
 import SelectedMovie from "./SelectedMovie";
-jest.mock("../../apiCalls.js")
+jest.mock("../../apiCalls.js");
 
 const mockMovieData = {
   movie: {
@@ -23,19 +23,17 @@ const mockMovieData = {
 
 describe("Selected Movie", () => {
   beforeEach(() => {
-    getMovie.mockResolvedValueOnce(mockMovieData)
-  })
+    getMovie.mockResolvedValueOnce(mockMovieData);
+  });
 
   it("Should render the title, tagline, movie backdrop, overview, release date, rating, genres, budget, revenue, and runtime", async () => {
-    render(
-      <SelectedMovie
-        id={1}
-      />
-    );
+    render(<SelectedMovie id={1} />);
 
     let movieTitle = await waitFor(() => screen.getByText("Movie Title"));
     let movieBackdrop = await waitFor(() => screen.getByRole("img"));
-    let movieReleaseDate = await waitFor(() => screen.getByText("Release Date:"));
+    let movieReleaseDate = await waitFor(() =>
+      screen.getByText("Release Date:")
+    );
     let movieDate = await waitFor(() => screen.getByText("December"));
     let overviewTitle = await waitFor(() => screen.getByText("Overview:"));
     let movieOverview = await waitFor(() => screen.getByText("Some overview"));

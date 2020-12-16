@@ -5,11 +5,11 @@ import DropMenu from "./DropMenu";
 
 describe("DropMenu", () => {
   it("Should display a button with options when clicked", () => {
-    render(<DropMenu />)
+    render(<DropMenu />);
 
     let button = screen.getByText("Filter by Ratings");
 
-    userEvent.click(button)
+    userEvent.click(button);
 
     let allOption = screen.getByText("All");
     let firstOption = screen.getByText("1 Star");
@@ -29,5 +29,5 @@ describe("DropMenu", () => {
     expect(fifthOption).toBeInTheDocument();
     expect(sixthOption).toBeInTheDocument();
     expect(seventhOption).toBeInTheDocument();
-  })
-})
+  });
+});

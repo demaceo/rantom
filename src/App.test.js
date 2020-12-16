@@ -86,7 +86,7 @@ describe("App", () => {
     ).toBeInTheDocument();
   });
 
-  it.skip("renders a movie's details when the movie is clicked", async () => {
+  it("renders a movie's details when the movie is clicked", async () => {
     render(
       <MemoryRouter>
         <App />
@@ -95,13 +95,10 @@ describe("App", () => {
 
     const movieCards = await waitFor(() => screen.getAllByRole("article"));
 
-    expect(movieCards[0]).toBeInTheDocument();
-
     userEvent.click(movieCards[0]);
 
-    const tagline = await waitFor(screen.getByText("Movie Tagline"));
-
-    screen.debug();
-    expect(tagline).toBeInTheDocument();
+    expect(
+      await waitFor(() => screen.getByText("Movie Tagline"))
+    ).toBeInTheDocument();
   });
 });

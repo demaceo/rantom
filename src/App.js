@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import { Row, Alert, Col } from "react-bootstrap";
 import NavBar from "./Components/NavBar/NavBar";
 import FeaturedMovies from "./Components/FeaturedMovies/FeaturedMovies";
 import SelectedMovie from "./Components/SelectedMovie/SelectedMovie";
-import { getMovies, getMovie } from "./apiCalls";
+import { getMovies } from "./apiCalls";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 import { Route } from "react-router-dom";
 import Loader from "./Components/Loader/Loader";
-import Home from './Components/Home/Home';
-import DropMenu from './Components/DropMenu/DropMenu';
+import Home from "./Components/Home/Home";
+import DropMenu from "./Components/DropMenu/DropMenu";
 
 class App extends Component {
   constructor() {
@@ -28,73 +27,48 @@ class App extends Component {
     }
     return (
       <>
-      <Route exact path="/movies/ratings/:rating"
-       render={({ match }) => {
-         const filteredMovies = this.state.movies.filter(movie => {
-           return Math.round(movie.average_rating) === parseInt(match.params.rating)
-             })
-            
-         return (
-           <>
-             <FeaturedMovies />
-             <NavBar returnToHome={this.returnToHome} />
-             <DropMenu movies={this.state.movies} />
-             <Home movies={filteredMovies} />
-           </>
-         );
-            }}
-      />
-        <Route 
-        exact path="/movie/:id" 
-        render={({ match }) => {
-          const movie = getMovie(match.params.id)
-            .then((response) => {
-              if (this.state.selectedMovie.id !== parseInt(match.params.id)) {
-                this.setState({ selectedMovie: response.movie });
-              }
-            })
-            .catch((error) => this.setState({ error: error }));
-            if (!movie) {
-              return (
-                <>
-                  <div>Sorry... that movie was not found</div>
-                  <Row className="d-flex justify-content-center">
-                    <Col md="auto">
-                      {this.state.error && (
-                        <Alert variant="danger">{this.state.error}</Alert>
-                      )}
-                    </Col>
-                  </Row>
-                </>
-              );
-            }
-            if (!this.state.selectedMovie.id) {
-              return <Loader error={this.state.error} />;
-            }
+        <Route
+          exact
+          path="/movies/ratings/:rating"
+          render={({ match }) => {
+            return (
+              <>
+                <FeaturedMovies />
+                <NavBar />
+                <DropMenu />
+                <Home
+                  movies={this.filteredMovies(parseInt(match.params.rating))}
+                />
+                {this.filteredMovies(parseInt(match.params.rating)).length ===
+                  0 && (
+                  <div className="no-rating">
+                    <h1>No movies with that rating</h1>
+                    <img
+                      src="http://forgifs.com/gallery/d/301665-4/Girl-trips-spills-popcorn.gif"
+                      alt="gif of lady falling"
+                    />
+                  </div>
+                )}
+              </>
+            );
+          }}
+        />
+        <Route
+          exact
+          path="/movie/:id"
+          render={({ match }) => {
             return (
               <>
                 <NavBar returnToHome={this.returnToHome} />
-                <SelectedMovie
-                  title={this.state.selectedMovie.title}
-                  tagline={this.state.selectedMovie.tagline}
-                  poster={this.state.selectedMovie.poster_path}
-                  backdrop={this.state.selectedMovie.backdrop_path}
-                  overview={this.state.selectedMovie.overview}
-                  release={this.state.selectedMovie.release_date}
-                  rating={this.state.selectedMovie.average_rating}
-                  genres={this.state.selectedMovie.genres}
-                  budget={this.state.selectedMovie.budget}
-                  revenue={this.state.selectedMovie.revenue}
-                  runtime={this.state.selectedMovie.runtime}
-                />
+                <SelectedMovie id={parseInt(match.params.id)} />
               </>
             );
           }}
         />
         <Route exact path="/">
           <FeaturedMovies />
-          <DropMenu movies={this.state.movies} />
-          <NavBar onClick={this.clearSelected} />
+          <NavBar />
+          <DropMenu />
           <Home movies={this.state.movies} />
         </Route>
       </>
@@ -108,8 +82,10 @@ class App extends Component {
       .catch((err) => this.setState({ error: err }));
   }
 
-  clearSelected() {
-    this.setState({ selectedMovie: {} });
+  filteredMovies(rating) {
+    return this.state.movies.filter((movie) => {
+      return Math.round(movie.average_rating) === rating;
+    });
   }
 }
 

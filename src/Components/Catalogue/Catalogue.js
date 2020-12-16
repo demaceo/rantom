@@ -1,7 +1,7 @@
 import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import { Row } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./Catalogue.scss";
 
 function Catalogue(props) {
@@ -19,11 +19,7 @@ function Catalogue(props) {
       </Link>
     );
   });
-  return (
-    <Row className="justify-content-md-center">
-      {movieCards}
-    </Row>
-  );
+  return <Row className="justify-content-md-center">{movieCards}</Row>;
 }
 
 export default Catalogue;

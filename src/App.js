@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Row, Alert, Col } from "react-bootstrap";
 import NavBar from "./Components/NavBar/NavBar";
 import FeaturedMovies from "./Components/FeaturedMovies/FeaturedMovies";
 import SelectedMovie from "./Components/SelectedMovie/SelectedMovie";
@@ -40,6 +39,16 @@ class App extends Component {
                 <Home
                   movies={this.filteredMovies(parseInt(match.params.rating))}
                 />
+                {this.filteredMovies(parseInt(match.params.rating)).length ===
+                  0 && (
+                  <div className="no-rating">
+                    <h1>No movies with that rating</h1>
+                    <img
+                      src="http://forgifs.com/gallery/d/301665-4/Girl-trips-spills-popcorn.gif"
+                      alt="gif of lady falling"
+                    />
+                  </div>
+                )}
               </>
             );
           }}

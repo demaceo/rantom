@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+[GitHub Deployed Page](https://demaceo.github.io/rantom/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
+# Rancid Tomatillos'
+###### A simple yet bold site to view movies
 
-## Available Scripts
 
-In the project directory, you can run:
+---
+## Table of Contents
+* [Introduction](#introduction)
+* [Features](#features)
+* [Resources](#resources)
+* [Contributors](#contributors)
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Welcome to Rancid Tomatillos](https://media.giphy.com/media/0aJoS84OErWv5MlCmw/giphy.gif)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The Rancid Tomatillos website is based on project criteria laid out for Turing Front End students in weeks 1-3 of Mod 3 in their time at Turing, as laid out [here](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html). The project promotes students to gain competency with React fundamentals by creating a multi-page UX using Router as well as learning how to test React components & asynchronous JavaScript.
 
-### `npm test`
+The project emphasises proper interactions between components, thusly pushing students to think carefully and critically about their logic to maintain the "data down, actions up" principles. The project also increases the scope of employing software developing skills to the planning stages - encouraging students to use project management tools and utilize wireframing and mind-mapping.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The site presents the user an assortment of movies with their corresponding information and gives the user the ability to sort movies based on their ratings.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
+---
+* [General Site Features](#general-site-features)
+* [Responsive Design](#responsive-design)
+* [Test Driven Development](#test-driven-development)
+* [Roadmap](#roadmap)
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### General Site Features
+Upon visiting the app, all movies are automatically displayed. When a user clicks on a movie and the details page is rendered, the URL updates to reflect that movie’s unique ID. Once a user has clicked on a movie card, that selected movie’s details are rendered and displayed, while simultaneous removing any other movie's data from view. Here, a user may either click the "RANCID TOMATILLO" navigation bar or the browser forward & back arrows to navigate back to the main view for all movies. In main view, a user can click the "Filter by Rating" button to display movies with only that selected rating.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+###### Selecting A Movie
+ When a user clicks on a movie, that selected movie’s details are rendered and displayed. Details for each movie include a title, tagline, overview, release date,  rating, genre(s), bugdget, revenue, and duration. There are a few instances where a movie does not have data representing one of these eight fields. In this case, that specific stat is automatically filled in with "N/A".
+ 
+![selecting a movie](https://media.giphy.com/media/e3TdPxtxaxzMGs3UnR/giphy.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+###### Returning To Main View
+Users have the ability to return back to main by  either clicking the "RANCID TOMATILLO" navigation bar or the browser forward & back arrows.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Returning To Main View](https://media.giphy.com/media/DihScxmIsNtHmvvi72/giphy.gif)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+###### Filter By Rating
+When a user clicks the "Filter by Rating" button, they are presented with a series of ratings to choose from. Upon clicking one of these ratings, the page will render and display movies with only that chosen rating.
 
-## Learn More
+![Filter By Rating](https://media.giphy.com/media/ZT9YdkzuGeH7RU6UIx/giphy.gif)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+###### No Movies Available For Filtered Rating
+In the event that a user may choose a rating that has no movies for it (in our case, that would be "1 Star" or "2 Star"), a message will appear reading "No movies with that rating".
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![No Ratings](https://media.giphy.com/media/8wjLQMinu0g1UegG6T/giphy.gif)
 
-### Code Splitting
+#### Responsive Design
+There was a considerable amount of attention paid to building out the architecture for this app. This was met with the intended goal of making this site as responsive as possible. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Responsive design gif](https://media.giphy.com/media/Hh82hdVzlLLwmf4Wry/giphy.gif)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Test Driven Development
 
-### Making a Progressive Web App
+- Unit & integration tests are passing.
+- Tests have been updated to accommodate Router
+- Asynchronous testing is completed
+- Router testing is completed
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+To run the testing suite for TDD, enter `npm test` in terminal. Any questions please contact the team through github!
 
-### Advanced Configuration
+#### Roadmap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+In future iterations, additions to the Rancid Tomatillos site include:
+- Sorting movies by genre
+- Tightening up styling 
+- Improving resposnive design for selected movies
+- A user login + local and server-side storage
+- Cleaner logic
+- More considerations for accessibility
 
-### Deployment
+#### Resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+React Bootstrap:
+- Drop Down (for Filter by Ratings button): https://react-bootstrap.github.io/components/dropdowns/
+- Cards: https://react-bootstrap.github.io/components/cards/
+- Carousel (for Featured Movies): https://react-bootstrap.github.io/components/carousel/
+- Nav Bar: https://react-bootstrap.github.io/components/navbar/
 
-### `npm run build` fails to minify
+Testing:
+- https://testing-library.com/docs/react-testing-library/cheatsheet/
+- https://testing-library.com/docs/dom-testing-library/api-queries/
+- https://testing-library.com/docs/dom-testing-library/api-async
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributors
+<img src="https://avatars2.githubusercontent.com/u/36242106?s=460&u=67cc9f62e495cec196581afa73f9110959c562cd&v=4" alt="Coding Dingus"
+ width="150" height="auto" style="float: left" />\
+**Caleb Cyphers**
+
+[GitHub Profile](https://github.com/CalebCyphers)
+
+<img src="https://avatars2.githubusercontent.com/u/62954974?s=400&u=b246587c21877b7fe4a4972e89ec98677d5c29d6&v=4" alt="Coding Dangus"
+ width="150" height="auto" style="float: left" />\
+**Demaceo Vincent Howard**
+
+[GitHub Profile](https://github.com/demaceo)

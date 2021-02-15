@@ -8,7 +8,7 @@ function FeaturedMovies() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="http://www.avalontheatregj.com/sites/default/files/Spiderman%20Into%20the%20Spiderverse.jpg"
+          src="https://nofilmschool.com/sites/default/files/styles/facebook/public/mv5bnzaznjy4ntyzov5bml5banbnxkftztgwndawnde3njm._v1_sy1000_cr0013331000_al__0.jpg?itok=sJFPeaqC"
           alt="Spider-Man"
         />
       </Carousel.Item>

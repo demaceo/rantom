@@ -1,8 +1,8 @@
-[GitHub Deployed Page](https://rancidtomatillo.herokuapp.com/)
+[Heroku Deployed Page](https://rancidtomatillo.herokuapp.com/)
 
 ---
 # Rancid Tomatillos
-###### A simple, yet bold, site to view movies and their ratings
+###### A simple, yet bold, site to view movies and their ratings.
 
 
 ---

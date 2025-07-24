@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "./Components/NavBar/NavBar";
 import FeaturedMovies from "./Components/FeaturedMovies/FeaturedMovies";
-import SelectedMovie from "./Components/SelectedMovie/SelectedMovie";
 import FilteredMovies from "./Components/FilteredMovies/FilteredMovies";
 import MovieDetailsPage from "./Components/MovieDetailsPage/MovieDetailsPage";
 import { getMovies } from "./apiCalls";
@@ -58,12 +57,6 @@ class App extends Component {
         this.setState({ movies: response.movies, loader: false });
       })
       .catch((err) => this.setState({ error: err, loader: false }));
-  }
-
-  filteredMovies(rating) {
-    return this.state.movies.filter((movie) => {
-      return Math.round(movie.average_rating) === rating;
-    });
   }
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import FeaturedMovies from "../FeaturedMovies/FeaturedMovies";
 import NavBar from "../NavBar/NavBar";
@@ -31,5 +32,9 @@ function FilteredMovies({ movies }) {
     </>
   );
 }
+
+FilteredMovies.propTypes = {
+  movies: PropTypes.array.isRequired
+};
 
 export default FilteredMovies;

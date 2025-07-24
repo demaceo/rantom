@@ -1,13 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Catalogue from "../Catalogue/Catalogue.js";
 import "./Home.scss";
 
 function Home(props) {
-  return (
-    <React.Fragment>
-      <Catalogue movies={props.movies} />
-    </React.Fragment>
-  );
+  return <Catalogue movies={props.movies} />;
 }
+
+Home.propTypes = {
+  movies: PropTypes.array.isRequired
+};
 
 export default Home;

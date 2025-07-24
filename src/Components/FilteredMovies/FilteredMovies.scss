@@ -1,0 +1,17 @@
+.no-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+  img {
+    max-width: 300px;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    color: #333;
+    text-align: center;
+  }
+}

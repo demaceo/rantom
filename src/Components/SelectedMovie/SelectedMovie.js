@@ -75,8 +75,8 @@ class SelectedMovie extends Component {
   }
 
   generateGenreList() {
-    return this.state.movie.genres.map((item) => (
-      <li key={Date.now}>{item}</li>
+    return this.state.movie.genres.map((item, index) => (
+      <li key={index}>{item}</li>
     ));
   }
 

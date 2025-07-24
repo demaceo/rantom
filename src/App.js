@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import NavBar from "./Components/NavBar/NavBar";
 import FeaturedMovies from "./Components/FeaturedMovies/FeaturedMovies";
 import SelectedMovie from "./Components/SelectedMovie/SelectedMovie";
+import FilteredMovies from "./Components/FilteredMovies/FilteredMovies";
+import MovieDetailsPage from "./Components/MovieDetailsPage/MovieDetailsPage";
 import { getMovies } from "./apiCalls";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
-import { Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Loader from "./Components/Loader/Loader";
 import Home from "./Components/Home/Home";
 import DropMenu from "./Components/DropMenu/DropMenu";
@@ -23,63 +25,39 @@ class App extends Component {
 
   render() {
     if (this.state.loader) {
-      <Loader error={this.state.error} />;
+      return <Loader error={this.state.error} />;
     }
     return (
-      <>
+      <Routes>
         <Route
-          exact
           path="/movies/ratings/:rating"
-          render={({ match }) => {
-            return (
-              <>
-                <FeaturedMovies />
-                <NavBar />
-                <DropMenu />
-                <Home
-                  movies={this.filteredMovies(parseInt(match.params.rating))}
-                />
-                {this.filteredMovies(parseInt(match.params.rating)).length ===
-                  0 && (
-                  <div className="no-rating">
-                    <img
-                      src="http://forgifs.com/gallery/d/301665-4/Girl-trips-spills-popcorn.gif"
-                      alt="gif of lady falling"
-                    />
-                    <h1>No movies with that rating</h1>
-                  </div>
-                )}
-              </>
-            );
-          }}
+          element={<FilteredMovies movies={this.state.movies} />}
         />
         <Route
-          exact
           path="/movie/:id"
-          render={({ match }) => {
-            return (
-              <>
-                <NavBar returnToHome={this.returnToHome} />
-                <SelectedMovie id={parseInt(match.params.id)} />
-              </>
-            );
-          }}
+          element={<MovieDetailsPage />}
         />
-        <Route exact path="/">
-          <FeaturedMovies />
-          <NavBar />
-          <DropMenu />
-          <Home movies={this.state.movies} />
-        </Route>
-      </>
+        <Route 
+          path="/" 
+          element={
+            <>
+              <FeaturedMovies />
+              <NavBar />
+              <DropMenu />
+              <Home movies={this.state.movies} />
+            </>
+          } 
+        />
+      </Routes>
     );
   }
 
   componentDidMount() {
     getMovies()
-      .then((response) => this.setState({ movies: response.movies }))
-      .then(this.setState({ loader: false }))
-      .catch((err) => this.setState({ error: err }));
+      .then((response) => {
+        this.setState({ movies: response.movies, loader: false });
+      })
+      .catch((err) => this.setState({ error: err, loader: false }));
   }
 
   filteredMovies(rating) {
